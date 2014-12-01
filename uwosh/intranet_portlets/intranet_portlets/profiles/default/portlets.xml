@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+ <portlet
+   addview="uwosh.intranet_portlets.intranet_portlets.NewsfeedPortlet"
+   title="Intranet Newsfeed Portlet"
+   description="portlet showing an RSS newsfeed"
+   />
+
+ <portlet
+   addview="uwosh.intranet_portlets.intranet_portlets.PinsPortlet"
+   title="Intranet Pins Portlet"
+   description="portlet showing your pinned content"
+   />
+
+ <portlet
+   addview="uwosh.intranet_portlets.intranet_portlets.SearchCurrentSectionPortlet"
+   title="Search Current Section Portlet"
+   description="search portlet that optionally searches only here and below"
+   />
+
+</portlets>

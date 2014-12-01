@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <action-provider name="portal_actions"/>
+ <object name="object" meta_type="CMF Action Category">
+  <object name="pin" meta_type="CMF Action">
+   <property name="title">Pin This</property>
+   <property name="description"></property>
+   <property name="url_expr">string:pin-this</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None and member.getHomeFolder() is not None</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="pin-error" meta_type="CMF Action">
+   <property name="title">Pin Error: home folders must be enabled</property>
+   <property name="description"></property>
+   <property name="url_expr">string:contact-info</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None and member.getHomeFolder() is None</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+ </object>
+ <object name="document_actions" meta_type="CMF Action Category">
+  <object name="pin" meta_type="CMF Action">
+   <property name="title">Pin This</property>
+   <property name="description"></property>
+   <property name="url_expr">string:pin-this</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None and member.getHomeFolder() is not None</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+  <object name="pin-error" meta_type="CMF Action">
+   <property name="title">Pin Error: home folders must be enabled</property>
+   <property name="description"></property>
+   <property name="url_expr">string:contact-info</property>
+   <property name="link_target"></property>
+   <property name="icon_expr"></property>
+   <property name="available_expr">python:member is not None and member.getHomeFolder() is None</property>
+   <property name="permissions">
+    <element value="View"/>
+   </property>
+   <property name="visible">True</property>
+  </object>
+ </object>
+</object>

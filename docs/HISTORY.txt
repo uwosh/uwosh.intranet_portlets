@@ -1,0 +1,100 @@
+Changelog
+=========
+
+TO DO:
+
+- Newsfeed: allow central vocabulary of newsfeed title and URL pairs
+
+- Newsfeed: allow users to specify their own newsfeed title and URL
+  instead of being restricted to choosing from what's available
+
+- Newsfeed: allow users to contribute their own newsfeed title and URL
+  pairs to the central vocabulary
+
+- Pins: allow opening up just the pins portlet in a floating separate
+  window
+  
+- Pins: "Add pin..." link should open up a much simpler add form that
+  has just title and URL, and should offer to preview to typed in URL
+
+
+0.3.1 (2013-01-03) [tkimnguyen]
+-------------------------------
+
+- Removed Advanced Search link because can't seem to limit search to
+  current section.
+
+- Reuse normal search portlet code as much as possible.
+
+
+0.3 (2013-01-03) [tkimnguyen]
+-----------------------------
+
+- Added SearchCurrentSection portlet that is like the normal search
+  portlet but lets you specify that the search results should be only
+  from the current section. Also has an option to hide or show the
+  "Advanced Search" link that is part of the normal search portlet.
+
+
+0.2.1 (2012-12-26) [tkimnguyen]
+-------------------------------
+
+- Pins: fix error displaying portlet because user has no home folder
+  on which to call absolute_url().
+
+- Pins: warn if user does not have a home folder or possibly that user
+  home folders are not enabled
+
+- Pins: The "Pin This" action is now also a document_action (appears
+  at the bottom of the page by default), in addition to the original
+  object action
+
+
+0.2 (2012-12-24) [tkimnguyen]
+-----------------------------
+
+- Added Pins Portlet that shows "My Pins" (contents of home folder
+  "my-pins" subfolder)
+
+- Pins: do not show in portlet more than the max number of items 
+
+- Pins: set and display portlet title correctly; make title required
+
+- Pins: in Manage Portlets, restored editing of existing pins portlet
+
+- Pins: in INSTALL.txt, explain that 'Enable User Folders' should be
+  set to True
+
+- Pins: changed pin_this.py Script (Python) in portal_skins/custom
+  folder into a browser page
+
+
+0.1.3 (2012-12-18) [tkimnguyen]
+-------------------------------
+
+- Fixed bug creating vocabulary
+
+
+0.1.2.1 (2012-12-18) [tkimnguyen]
+---------------------------------
+
+- Fixed bug creating vocabulary
+
+
+0.1.2 (2012-12-15) [tkimnguyen]
+-------------------------------
+
+- store nice newsfeed title and display it instead of the URL in the
+  edit form and in the title of the portlet
+
+
+0.1.1 (2012-12-15) [tkimnguyen]
+-------------------------------
+
+- Title of portlet shows URL of newsfeed
+
+
+0.1 (2012-12-07) [tkimnguyen]
+-----------------------------
+
+- Initial release

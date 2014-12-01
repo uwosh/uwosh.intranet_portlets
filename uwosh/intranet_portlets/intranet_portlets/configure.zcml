@@ -1,0 +1,60 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="uwosh.intranet_portlets.intranet_portlets">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <include package=".browser" />
+
+    <genericsetup:registerProfile
+       name="default"
+       title="Intranet portlets"
+       directory="profiles/default"
+       description="portlets for the UW Oshkosh Intranet"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+     <!-- Register the portlet -->
+
+     <!-- If the portlet has no configurable parameters, you can remove
+          the EditForm declaration in newsfeedportlet.py and delete
+          the 'editview' attribute from this statement.
+       -->
+
+     <plone:portlet
+         name="uwosh.intranet_portlets.intranet_portlets.NewsfeedPortlet"
+         interface=".newsfeedportlet.INewsfeedPortlet"
+         assignment=".newsfeedportlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".newsfeedportlet.Renderer"
+         addview=".newsfeedportlet.AddForm"
+         editview=".newsfeedportlet.EditForm"
+         />
+
+     <plone:portlet
+         name="uwosh.intranet_portlets.intranet_portlets.PinsPortlet"
+         interface=".pinsportlet.IPinsPortlet"
+         assignment=".pinsportlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".pinsportlet.Renderer"
+         addview=".pinsportlet.AddForm"
+         editview=".pinsportlet.EditForm"
+         />
+
+     <plone:portlet
+         name="uwosh.intranet_portlets.intranet_portlets.SearchCurrentSectionPortlet"
+         interface=".searchcurrentsectionportlet.ISearchCurrentSectionPortlet"
+         assignment=".searchcurrentsectionportlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".searchcurrentsectionportlet.Renderer"
+         addview=".searchcurrentsectionportlet.AddForm"
+         editview=".searchcurrentsectionportlet.EditForm"
+         />
+
+</configure>

@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="">
+<dl class="portlet portletPins"
+    i18n:domain="uwosh.intranet_portlets.intranet_portlets"
+    tal:condition="view/enabled">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <a href=""
+           tal:attributes="href view/links_folder_url"
+	   tal:content="view/title"
+           class="tile">
+            My Pins
+        </a>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <tal:rss tal:repeat="item view/items">
+        <dd class="portletItem oddrow"
+            tal:define="oddrow repeat/item/odd;
+			title_or_id python:item[1].title_or_id();
+			remoteURL python:item[1].getRemoteUrl();"
+            tal:attributes="class python:oddrow and 'portletItem even' or 'portletItem odd'">
+
+            <a href="#"
+                tal:attributes="href remoteURL"
+                class="tile">
+                <span tal:replace="title_or_id">
+                    Title
+                </span>
+            </a>
+
+            <a href="#" target="_blank"
+                tal:attributes="href remoteURL"
+                class="tile">
+                <span class="discreet">
+                    +
+                </span>
+            </a>
+
+        </dd>
+    </tal:rss>
+
+        <dd class="portletItem odd"
+	    tal:define="home_folder python:context.portal_membership.getHomeFolder();
+			add_link_url python:home_folder is not None and home_folder.absolute_url()+'/my-pins/createObject?type_name=Link' or None;">
+
+	    <div tal:condition="add_link_url">
+
+            <a href="#"
+                tal:attributes="href add_link_url"
+                class="link-overlay">
+                <span class="discreet">
+                    Add pin&hellip;
+                </span>
+            </a>
+
+            <a href="#"
+                tal:attributes="href add_link_url"
+	        target="_blank"
+                class="tile">
+                <span class="discreet">
+                    +
+                </span>
+            </a>
+
+	    </div>
+
+	    <div tal:condition="not:add_link_url">
+	      Error: user home folders are not enabled. Please <a href="contact-info">contact a system administrator</a>.
+
+	    </div>
+
+
+        </dd>
+
+    <dd class="portletFooter" tal:condition="view/links_folder_url">
+        <a href=""
+           tal:attributes="href view/links_folder_url"
+           i18n:translate="box_morelink">
+                See all pins&hellip;
+        </a>
+        <a href=""
+	   target="_blank"
+           tal:attributes="href view/links_folder_url"
+           i18n:translate="box_morelink">
+                +
+        </a>
+        <span class="portletBottomLeft"></span>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
+</html>

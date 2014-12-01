@@ -1,0 +1,14 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="uwosh.intranet_portlets">
+
+  <browser:view
+     name="pin-this"
+     for="*"
+     class=".pin.PinThis"
+     permission="zope2.View"
+     />
+
+</configure>
